@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 moveDirection;
 
+    [SerializeField] private GameObject environment;
+
+    
     private void Update()
     {
         Move();
@@ -19,7 +22,8 @@ public class PlayerMovement : MonoBehaviour
         {
             moveDirection = new Vector3(Input.GetAxisRaw("Mouse X"), 0f, 0f).normalized;
             transform.position += horizontalMoveSpeed * Time.deltaTime * moveDirection;
-            transform.position += forwardMoveSpeed * Time.deltaTime * transform.forward;
+
+            environment.transform.Translate(-transform.forward * Time.deltaTime * forwardMoveSpeed);
         }
     }
 }
