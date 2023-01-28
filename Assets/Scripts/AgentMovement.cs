@@ -12,7 +12,11 @@ public class AgentMovement : MonoBehaviour
     }
     private void Update()
     {
-        agent.SetDestination(transform.parent.position);
+        if (agent.enabled) 
+        {
+            agent.SetDestination(transform.parent.position);
+        }
+        
     }
 
    
