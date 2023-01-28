@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private GameObject ground;
+
     public float horizontalMoveSpeed = 5f, forwardMoveSpeed = 5f;
 
     private Vector3 moveDirection;
 
-    [SerializeField] private GameObject environment;
-
-    
     private void Update()
     {
         Move();
@@ -22,8 +21,7 @@ public class PlayerMovement : MonoBehaviour
         {
             moveDirection = new Vector3(Input.GetAxisRaw("Mouse X"), 0f, 0f).normalized;
             transform.position += horizontalMoveSpeed * Time.deltaTime * moveDirection;
-
-            environment.transform.Translate(-transform.forward * Time.deltaTime * forwardMoveSpeed);
+            ground.transform.Translate(forwardMoveSpeed * Time.deltaTime * -transform.forward);
         }
     }
 }

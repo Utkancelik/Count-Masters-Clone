@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+
 public class Door : MonoBehaviour
 {
-    [SerializeField] private TextMeshPro doorText;
-
-    [HideInInspector] public int randomCloneNumber;
+    private TextMeshPro cloneNumberText;
+    [HideInInspector] public int cloneNumber;
     private void Awake()
     {
-        doorText = transform.GetChild(0).GetComponent<TextMeshPro>();
+        cloneNumberText= GetComponentInChildren<TextMeshPro>();
     }
 
     private void Start()
     {
-        randomCloneNumber = Random.Range(1, 21);
-        doorText.text = "+" +randomCloneNumber.ToString(); 
+        cloneNumber = Random.Range(5, 31);
+        cloneNumberText.text = "+" + cloneNumber.ToString();
     }
 
 
