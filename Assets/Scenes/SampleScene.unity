@@ -585,8 +585,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226097934}
   m_LocalRotation: {x: 0.5, y: -0, z: -0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 2.61, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalPosition: {x: 0, y: 2.6100001, z: 0}
+  m_LocalScale: {x: 0.24999997, y: 0.2500001, z: 1.0000004}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1510745736}
@@ -706,7 +706,7 @@ SpriteShapeRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Color: {r: 1, g: 0.7294118, b: 0.7294118, a: 1}
+  m_Color: {r: 0.91372555, g: 0.43921572, b: 0, a: 1}
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 2800000, guid: b281b91a70a624a0da1c43adc1c30c7b, type: 3}
   m_Sprites:
@@ -2965,6 +2965,7 @@ MonoBehaviour:
   ground: {fileID: 1117940997}
   horizontalMoveSpeed: 5
   forwardMoveSpeed: 5
+  enemyAreaMovementSpeed: 1
 --- !u!54 &1016816176
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3487,8 +3488,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294177779
+  m_fontColor: {r: 0.9528302, g: 0.9528302, b: 0.9528302, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5170,7 +5171,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.7311321, b: 0.7311321, a: 1}
+  m_Color: {r: 0.9150943, g: 0.43958738, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

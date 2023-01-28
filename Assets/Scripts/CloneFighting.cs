@@ -8,21 +8,33 @@ public class CloneFighting : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            print("ENEMY");
             EnemyCloning enemyCloning = collision.gameObject.transform.parent.GetComponent<EnemyCloning>();
             PlayerCloning playerCloning = gameObject.transform.parent.GetComponent<PlayerCloning>();
+
+
             if (enemyCloning != null && playerCloning != null)
             {
-                int numberOfEnemy = enemyCloning.bodyCount;
-                int numberOfPlayer = playerCloning.bodyCount;
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
-                numberOfEnemy--;
-                numberOfPlayer--;
-                enemyCloning.bodyCount = numberOfEnemy;
-                playerCloning.bodyCount = numberOfPlayer;
-                enemyCloning.bodyCountText.text = enemyCloning.bodyCount.ToString();
-                playerCloning.bodyCountText.text = playerCloning.bodyCount.ToString();
+                enemyCloning.bodyCount--;
+                playerCloning.bodyCount--;
+                if (enemyCloning.bodyCount < 0)
+                {
+                    enemyCloning.bodyCountText.text = "0";
+                }
+                else
+                {
+                    enemyCloning.bodyCountText.text = enemyCloning.bodyCount.ToString();
+                }
+                if (playerCloning.bodyCount < 0)
+                {
+                    playerCloning.bodyCountText.text = "0";
+                }
+                else
+                {
+                    playerCloning.bodyCountText.text = playerCloning.bodyCount.ToString();
+                }
+
             }
         }
     }
