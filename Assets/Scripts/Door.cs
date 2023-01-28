@@ -6,7 +6,7 @@ using TMPro;
 public class Door : MonoBehaviour
 {
     private TextMeshPro cloneNumberText;
-    private int cloneNumber;
+    [HideInInspector] public int cloneNumber;
     private void Awake()
     {
         cloneNumberText= GetComponentInChildren<TextMeshPro>();
