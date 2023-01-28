@@ -1,33 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
-public class PlayerCloning : MonoBehaviour
+public class EnemyCloning : MonoBehaviour
 {
     [SerializeField] private GameObject clonePrefab;
     [SerializeField] private float X, Z;
     [SerializeField] public TextMeshPro bodyCountText;
 
-    public int bodyCount = 1;
+    public int bodyCount = 0;
+    private int randomEnemyClone;
     private void Start()
     {
-        bodyCountText.text = bodyCount.ToString();
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Door"))
-        {
-            Door door = other.GetComponent<Door>();
-            if (door != null)
-            {
-                int cloneNumber = door.cloneNumber;
-                ClonePlayer(cloneNumber);
-            }
-        }
+        randomEnemyClone = Random.Range(5, 16);
+
+        CloneEnemy(randomEnemyClone);
     }
 
-    private void ClonePlayer(int amount)
+    private void CloneEnemy(int amount)
     {
         for (int i = 0; i < amount; i++)
         {
@@ -39,4 +30,6 @@ public class PlayerCloning : MonoBehaviour
             bodyCountText.text = bodyCount.ToString();
         }
     }
+
+    
 }
