@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private GameObject ground;
+
     public float horizontalMoveSpeed = 5f, forwardMoveSpeed = 5f;
 
     private Vector3 moveDirection;
@@ -19,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
         {
             moveDirection = new Vector3(Input.GetAxisRaw("Mouse X"), 0f, 0f).normalized;
             transform.position += horizontalMoveSpeed * Time.deltaTime * moveDirection;
-            transform.position += forwardMoveSpeed * Time.deltaTime * transform.forward;
+            ground.transform.Translate(forwardMoveSpeed * Time.deltaTime * -transform.forward);
         }
     }
 }
