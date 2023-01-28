@@ -1,11 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerCloning : MonoBehaviour
 {
     [SerializeField] private GameObject clonePrefab;
     [SerializeField] private float X, Z;
+    [SerializeField] private TextMeshPro bodyCountText;
+
+    private int bodyCount = 1;
+    private void Start()
+    {
+        bodyCountText.text = bodyCount.ToString();
+    }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Door"))
@@ -27,6 +35,8 @@ public class PlayerCloning : MonoBehaviour
             float randomZ = Random.Range(-Z, Z);
             Vector3 clonePos = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
             Instantiate(clonePrefab, clonePos, Quaternion.identity, this.transform);
+            bodyCount++;
+            bodyCountText.text = bodyCount.ToString();
         }
     }
 }
